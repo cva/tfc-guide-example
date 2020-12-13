@@ -1,12 +1,19 @@
-provider "aws" {
-  version = "2.33.0"
+terraform {
+  required_providers {
+    aws = {
+      version = "2.33.0"
+    }
+    random = {
+      version = "2.2"
+    }
+  }
+}
 
+provider "aws" {
   region = var.aws_region
 }
 
-provider "random" {
-  version = "2.2"
-}
+provider "random" {}
 
 resource "random_pet" "table_name" {}
 
